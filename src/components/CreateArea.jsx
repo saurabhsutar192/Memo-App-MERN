@@ -19,6 +19,8 @@ function CreateArea(prop) {
       }
     } else {
       window.alert("Duplicate Entries Found!");
+      reset();
+      ipHead.current.value = "";
     }
   });
 
