@@ -4,12 +4,16 @@ import { useForm } from "react-hook-form";
 
 function CreateArea(prop) {
   let ipHead = useRef();
-  const { register, handleSubmit } = useForm();
+
+  const { register, handleSubmit, reset } = useForm({
+    defaultValue: { text: "" },
+  });
 
   const submitHandler = handleSubmit((data) => {
     if (!prop.note.some((arr) => arr.text === data.text)) {
       if (data.text) {
         prop.addItem(data, ipHead.current);
+        reset();
       } else {
         window.alert("Enter Text");
       }
